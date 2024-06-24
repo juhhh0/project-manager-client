@@ -1,6 +1,8 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CustomInput from "../components/ui/Input";
+import CustomButton from "../components/ui/Button";
 
 const SIGNUP_MUTATION = gql`
   mutation Signup($user: SignupInput!) {
@@ -43,17 +45,11 @@ export default function Signup() {
     );
 
   return (
-    <form action="" onSubmit={submit} className="flex flex-col">
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" name="email" />
-
-      <label htmlFor="username">Username</label>
-      <input type="text" id="username" name="username" />
-
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" name="password" />
-
-      <button disabled={loading} type="submit">Sign up</button>
+    <form action="" onSubmit={submit} className="flex flex-col max-w-sm mx-auto">
+      <CustomInput name="email" label="Email" type="email" />
+      <CustomInput name="username" label="Username" type="text" className="my-3" />
+      <CustomInput name="password" label="Password" type="password" />
+      <CustomButton label="Sign up" disabled={loading} type="submit" className="mt-3"/>
       {error && <p>{error.message}</p>}
     </form>
   );

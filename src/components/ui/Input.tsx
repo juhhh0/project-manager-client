@@ -1,9 +1,9 @@
 import { Description, Field, Input, Label } from '@headlessui/react'
 import clsx from 'clsx'
 
-export default function CustomInput({name, label, description, type} : {name: string, label: string, description?: string, type: string}) {
+export default function CustomInput({name, label, description, type, className} : {name: string, label: string, description?: string, type: string, className?: string}) {
   return (
-    <div className="w-full max-w-md">
+    <div className={`w-full max-w-md ${className}`}>
       <Field>
         <Label className="text-sm/6 font-medium text-white">{label}</Label>
         <Description className="text-sm/6 text-white/50">{description}</Description>

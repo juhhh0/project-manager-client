@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
+import CustomButton from "./ui/Button";
 
 export default function Navbar() {
   const signOut = useSignOut();
@@ -19,10 +20,12 @@ export default function Navbar() {
         {isAuthenticated ? (
           <button onClick={signout}>Sign Out</button>
         ) : (
-          <>
+          <div className="flex gap-3 items-center">
             <NavLink to="/signup">Sign up</NavLink>
-            <NavLink to="/login">Login</NavLink>
-          </>
+            <NavLink to="/login">
+            <CustomButton label="Login" />
+            </NavLink>
+          </div>
         )}
       </div>
     </nav>

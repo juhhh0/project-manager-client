@@ -2,6 +2,8 @@ import { gql, useMutation } from "@apollo/client";
 import React from "react";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { useNavigate } from "react-router-dom";
+import CustomInput from "../components/ui/Input";
+import CustomButton from "../components/ui/Button";
 
 const LOGIN_MUTATION = gql`
   mutation Login($user: LoginInput!) {
@@ -49,16 +51,10 @@ export default function Login() {
     }
   };
   return (
-    <form action="" onSubmit={submit} className="flex flex-col">
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" name="email" />
-
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" name="password" />
-
-      <button disabled={loading} type="submit">
-        Login
-      </button>
+    <form action="" onSubmit={submit} className="flex flex-col mx-auto w-full max-w-sm">
+      <CustomInput name="email" label="Email" type="email" className="mb-3" />
+      <CustomInput name="password" label="Password" type="password" />
+      <CustomButton label="Login" disabled={loading} type="submit" className="mt-3" />
       {error && <p>{error.message}</p>}
     </form>
   );
