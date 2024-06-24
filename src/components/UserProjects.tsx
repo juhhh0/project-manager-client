@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
+import DeleteProject from './DeleteProject';
 
 const GET_USER_PROJECTS = gql`
   query GetUserProjects{
@@ -15,13 +16,16 @@ export default function UserProjects() {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-    console.log(data, "projects")
   return (
-    <section>
-        <h2>Projects</h2>
+    <section className='mt-8'>
+        <h2 className='text-xl font-bold'>Your projects</h2>
         <ul>
             {data.userProjects.map((project: any) => (
-                <li key={project.id}>{project.title}</li>
+                <li key={project.id}>
+                  <p>{project.title}</p>
+                  <p>Description</p>
+                  <DeleteProject id={project.id} />
+                </li>
             ))}
         </ul>
     </section>
