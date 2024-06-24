@@ -6,7 +6,7 @@ import CustomButton from "./ui/Button";
 
 
 const CREATE_PROJECT = gql`
-  mutation CreateProject($project: ProjectInput!) {
+  mutation CreateProject($project: AddProjectInput!) {
     addProject(project: $project) {
       title
     }
