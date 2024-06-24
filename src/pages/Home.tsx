@@ -8,6 +8,7 @@ export default function Home() {
   if (isAuthenticated)
     return (
       <>
+          
         <NewProjectForm />
         <UserProjects />
       </>

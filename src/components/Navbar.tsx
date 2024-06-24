@@ -5,7 +5,7 @@ import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
 export default function Navbar() {
   const signOut = useSignOut();
   const isAuthenticated = useIsAuthenticated();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const signout = () => {
     signOut();
@@ -14,15 +14,17 @@ export default function Navbar() {
 
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
-      {isAuthenticated ? (
-        <button onClick={signout}>Sign Out</button>
-      ) : (
-        <>
-          <NavLink to="/signup">Sign up</NavLink>
-          <NavLink to="/login">Login</NavLink>
-        </>
-      )}
+      <div className="h-16 container flex items-center justify-between">
+        <NavLink to="/">Home</NavLink>
+        {isAuthenticated ? (
+          <button onClick={signout}>Sign Out</button>
+        ) : (
+          <>
+            <NavLink to="/signup">Sign up</NavLink>
+            <NavLink to="/login">Login</NavLink>
+          </>
+        )}
+      </div>
     </nav>
   );
 }
