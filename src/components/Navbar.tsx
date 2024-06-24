@@ -4,6 +4,7 @@ export default function Navbar() {
   return (
     <nav>
         <NavLink to="/">Home</NavLink>
+        <NavLink to="/signup">Sign up</NavLink>
     </nav>
   )
 }
