@@ -1,5 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import React from "react";
+import { Input } from '@headlessui/react'
+import CustomInput from "./ui/Input";
+import CustomButton from "./ui/Button";
+
 
 const CREATE_PROJECT = gql`
   mutation CreateProject($project: ProjectInput!) {
@@ -27,12 +31,13 @@ export default function NewProjectForm() {
     });
   };
   return (
-    <form action="" onSubmit={submit}>
-      <label htmlFor="project-title">Project Name</label>
-      <input type="text" id="project-title" />
-      <button disabled={loading} type="submit">
+    <form action="" onSubmit={submit} className="flex flex-col max-w-sm">
+      <h2 className="text-xl font-bold mb-3">Start a new project</h2>
+      <CustomInput name="project-title" label="Project Title" type="text"  />
+      {/* <button disabled={loading} type="submit">
         Create Project
-      </button>
+      </button> */}
+      <CustomButton label="Create Project" disabled={loading} type="submit" />
       {error && <p>{error.message}</p>}
     </form>
   );

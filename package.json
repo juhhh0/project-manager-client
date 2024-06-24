@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.6",
+    "@headlessui/react": "^2.1.0",
     "apollo-link-context": "^1.0.20",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.11",
