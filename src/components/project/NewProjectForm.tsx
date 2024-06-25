@@ -1,8 +1,8 @@
 import { gql, useMutation } from "@apollo/client";
 import React from "react";
 import { Input } from '@headlessui/react'
-import CustomInput from "./ui/Input";
-import CustomButton from "./ui/Button";
+import CustomInput from "../ui/Input";
+import CustomButton from "../ui/Button";
 
 
 const CREATE_PROJECT = gql`

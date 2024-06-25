@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import CustomButton from "./ui/Button";
+import CustomButton from "../ui/Button";
 
 const DELETE_PROJECT = gql`
   mutation DeleteProject($id: ID!) {

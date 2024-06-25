@@ -1,6 +1,6 @@
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
-import UserProjects from "../components/UserProjects";
-import NewProjectForm from "../components/NewProjectForm";
+import UserProjects from "../components/project/UserProjects";
+import NewProjectForm from "../components/project/NewProjectForm";
 
 export default function Home() {
   const isAuthenticated = useIsAuthenticated();

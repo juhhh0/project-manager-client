@@ -17,16 +17,23 @@ export default function Navbar() {
     <nav>
       <div className="h-16 container flex items-center justify-between">
         <NavLink to="/">Home</NavLink>
-        {isAuthenticated ? (
-          <button onClick={signout}>Sign Out</button>
-        ) : (
-          <div className="flex gap-3 items-center">
-            <NavLink to="/signup">Sign up</NavLink>
-            <NavLink to="/login">
-            <CustomButton label="Login" />
-            </NavLink>
-          </div>
-        )}
+        <div className="flex gap-3 items-center">
+          {isAuthenticated ? (
+            <>
+              <NavLink to="/profile">
+                <CustomButton label="Profile" />
+              </NavLink>
+              <button onClick={signout}>Sign Out</button>
+            </>
+          ) : (
+            <>
+              <NavLink to="/signup">Sign up</NavLink>
+              <NavLink to="/login">
+                <CustomButton label="Login" />
+              </NavLink>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   );
