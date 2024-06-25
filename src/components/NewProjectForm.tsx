@@ -34,7 +34,7 @@ export default function NewProjectForm() {
     <form action="" onSubmit={submit} className="flex flex-col max-w-sm">
       <h2 className="text-xl font-bold mb-3">Start a new project</h2>
       <CustomInput name="project-title" label="Project Title" type="text"  />
-      <CustomButton label="Create Project" disabled={loading} type="submit" />
+      <CustomButton label="Create Project" disabled={loading} type="submit" className="mt-3" />
       {error && <p>{error.message}</p>}
     </form>
   );

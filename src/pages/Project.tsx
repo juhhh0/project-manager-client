@@ -55,7 +55,7 @@ export default function Project() {
       <h2 className="text-xl font-bold mb-4">{data.project.title}</h2>
       <form action="" onSubmit={submitDescription}>
         <CustomTextArea name="description" label="description" value={data.project.description} />
-        <CustomButton label="Update Description" disabled={updateLoading} type="submit" />
+        <CustomButton label="Update Description" disabled={updateLoading} type="submit" className="mt-3" />
         {updateError && <p>{updateError.message}</p>}
       </form>
     </div>
