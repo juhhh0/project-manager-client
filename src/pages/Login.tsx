@@ -10,6 +10,7 @@ const LOGIN_MUTATION = gql`
     login(user: $user) {
       token
       name
+      id
       email
     }
   }
@@ -40,6 +41,7 @@ export default function Login() {
           type: "Bearer",
         },
         userState: {
+          id: data.login.id,
           name: data.login.name,
           email: data.login.email,
         },

@@ -9,6 +9,7 @@ const GET_USER = gql`
       name
       projects {
         title
+        userId
         description
         id
       }
@@ -21,8 +22,6 @@ export default function Profile() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
-  console.log(data, "profile");
 
   return (
     <div>

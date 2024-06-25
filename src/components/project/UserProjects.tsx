@@ -8,6 +8,7 @@ const GET_USER_PROJECTS = gql`
     userProjects {
       title
       description
+      userId
       id
     }
   }
@@ -18,6 +19,6 @@ export default function UserProjects() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  
+
   return <ProjectList title="Your Projects" projects={data.userProjects} />;
 }
