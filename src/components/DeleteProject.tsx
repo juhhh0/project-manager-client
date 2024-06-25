@@ -25,6 +25,7 @@ export default function DeleteProject({ id }: { id: string }) {
   return (
     <CustomButton
       label="Delete"
+      color="red"
       disabled={loading}
       onClick={deleteProjectClick}
     />
