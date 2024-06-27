@@ -1,23 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import ProjectList from "../components/project/ProjectList";
+import { GET_USER } from "../services/queries";
 
-const GET_USER = gql`
-  query GetUser {
-    userProfile {
-      id
-      email
-      name
-      projects {
-        title
-        userId
-        description
-        id
-      }
-    }
-  }
-`;
-
-export default function Profile() {
+const Profile: React.FC = () => {
   const { data, error, loading } = useQuery(GET_USER);
 
   if (loading) return <p>Loading...</p>;
@@ -30,4 +15,6 @@ export default function Profile() {
       <ProjectList title="Projects" projects={data.userProfile.projects} />
     </div>
   );
-}
+};
+
+export default Profile;

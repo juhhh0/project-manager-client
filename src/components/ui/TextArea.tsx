@@ -1,15 +1,13 @@
-import { Description, Field, Label, Textarea } from "@headlessui/react";
+import { Field, Label, Textarea } from "@headlessui/react";
 import clsx from "clsx";
 
-export default function CustomTextArea({
-  label,
-  name,
-  value,
-}: {
+type Props = {
   label: string;
   name: string;
   value?: string;
-}) {
+};
+
+const CustomTextArea: React.FC<Props> = ({ label, name, value }) => {
   return (
     <div className="w-full max-w-md">
       <Field>
@@ -26,4 +24,6 @@ export default function CustomTextArea({
       </Field>
     </div>
   );
-}
+};
+
+export default CustomTextArea;

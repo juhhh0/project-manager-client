@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-export default function RootLayout() {
+const RootLayout: React.FC = () => {
   return (
     <div className="relative">
       <div className="h-screen w-full fixed dark:bg-black bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] -z-10">
@@ -16,4 +16,6 @@ export default function RootLayout() {
       </main>
     </div>
   );
-}
+};
+
+export default RootLayout;

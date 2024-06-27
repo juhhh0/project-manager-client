@@ -1,22 +1,12 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import React from "react";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/ui/Input";
 import CustomButton from "../components/ui/Button";
+import { LOGIN_MUTATION } from "../services/mutations";
 
-const LOGIN_MUTATION = gql`
-  mutation Login($user: LoginInput!) {
-    login(user: $user) {
-      token
-      name
-      id
-      email
-    }
-  }
-`;
-
-export default function Login() {
+const Login: React.FC = () => {
   const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
   const signIn = useSignIn();
   const navigate = useNavigate();
@@ -53,11 +43,22 @@ export default function Login() {
     }
   };
   return (
-    <form action="" onSubmit={submit} className="flex flex-col mx-auto w-full max-w-sm">
+    <form
+      action=""
+      onSubmit={submit}
+      className="flex flex-col mx-auto w-full max-w-sm"
+    >
       <CustomInput name="email" label="Email" type="email" className="mb-3" />
       <CustomInput name="password" label="Password" type="password" />
-      <CustomButton label="Login" disabled={loading} type="submit" className="mt-3" />
+      <CustomButton
+        label="Login"
+        disabled={loading}
+        type="submit"
+        className="mt-3"
+      />
       {error && <p>{error.message}</p>}
     </form>
   );
-}
+};
+
+export default Login;

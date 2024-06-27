@@ -3,20 +3,19 @@ import { ProjectType } from "../../types/types";
 import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 
-export default function ProjectList({
-  title,
-  projects,
-}: {
+type Props = {
   title?: string;
   projects: ProjectType[];
-}) {
+};
+
+const ProjectList: React.FC<Props> = ({ title, projects }) => {
   const auth: { id: string } | null = useAuthUser();
-  
+
   return (
     <section className="mt-8">
       <h2 className="text-xl font-bold">{title}</h2>
       <ul>
-        {projects.map((project: any) => (
+        {projects.map((project: ProjectType) => (
           <li
             key={project.id}
             className="border-b flex justify-between items-center py-8"
@@ -31,4 +30,6 @@ export default function ProjectList({
       </ul>
     </section>
   );
-}
+};
+
+export default ProjectList;

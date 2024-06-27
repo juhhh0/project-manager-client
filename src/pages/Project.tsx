@@ -1,27 +1,12 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import React from "react";
 import { useParams } from "react-router-dom";
 import CustomTextArea from "../components/ui/TextArea";
 import CustomButton from "../components/ui/Button";
+import { UPDATE_PROJECT } from "../services/mutations";
+import { GET_PROJECT } from "../services/queries";
 
-const GET_PROJECT = gql`
-  query GetProject($id: ID!) {
-    project(id: $id) {
-      title
-      description
-    }
-  }
-`;
-
-const UPDATE_PROJECT = gql`
-  mutation UpdateProject($id: ID!, $project: UpdateProjectInput!) {
-    updateProject(id: $id, project: $project) {
-      title
-    }
-  }
-`;
-
-export default function Project() {
+const Project: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data, error, loading } = useQuery(GET_PROJECT, {
     variables: {
@@ -29,9 +14,10 @@ export default function Project() {
     },
   });
 
-  const [updateProject, { loading: updateLoading, error: updateError }] = useMutation(UPDATE_PROJECT, {
-    refetchQueries: ["GetProject"],
-  })
+  const [updateProject, { loading: updateLoading, error: updateError }] =
+    useMutation(UPDATE_PROJECT, {
+      refetchQueries: ["GetProject"],
+    });
 
   const submitDescription = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -54,10 +40,21 @@ export default function Project() {
     <div>
       <h2 className="text-xl font-bold mb-4">{data.project.title}</h2>
       <form action="" onSubmit={submitDescription}>
-        <CustomTextArea name="description" label="description" value={data.project.description} />
-        <CustomButton label="Update Description" disabled={updateLoading} type="submit" className="mt-3" />
+        <CustomTextArea
+          name="description"
+          label="description"
+          value={data.project.description}
+        />
+        <CustomButton
+          label="Update Description"
+          disabled={updateLoading}
+          type="submit"
+          className="mt-3"
+        />
         {updateError && <p>{updateError.message}</p>}
       </form>
     </div>
   );
-}
+};
+
+export default Project;

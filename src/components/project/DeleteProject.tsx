@@ -1,15 +1,8 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import CustomButton from "../ui/Button";
+import { DELETE_PROJECT } from "../../services/mutations";
 
-const DELETE_PROJECT = gql`
-  mutation DeleteProject($id: ID!) {
-    deleteProject(id: $id) {
-      id
-    }
-  }
-`;
-
-export default function DeleteProject({ id }: { id: string }) {
+const DeleteProject: React.FC<{ id: string }> = (id) => {
   const [deleteProject, { loading }] = useMutation(DELETE_PROJECT, {
     refetchQueries: ["GetUserProjects"],
   });
@@ -30,4 +23,6 @@ export default function DeleteProject({ id }: { id: string }) {
       onClick={deleteProjectClick}
     />
   );
-}
+};
+
+export default DeleteProject;

@@ -3,7 +3,7 @@ import useSignOut from "react-auth-kit/hooks/useSignOut";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
 import CustomButton from "./ui/Button";
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
   const signOut = useSignOut();
   const isAuthenticated = useIsAuthenticated();
   const navigate = useNavigate();
@@ -37,4 +37,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
