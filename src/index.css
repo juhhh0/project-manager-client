@@ -9,3 +9,7 @@ body {
 .container {
     @apply max-w-[88rem] px-8 mx-auto;
 }
+
+.bn-editor{
+    background: none;
+}
