@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client";
 import CustomButton from "../ui/Button";
 import CustomTextArea from "../ui/TextArea";
 import { UPDATE_PROJECT } from "../../services/mutations";
+import CustomInput from "../ui/Input";
 
 type Props = {
   project: {
@@ -17,7 +18,7 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
       refetchQueries: ["GetProject"],
     });
 
-  const submitDescription = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
 
@@ -25,6 +26,7 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
       variables: {
         id: project.id,
         project: {
+          title: (form["title"] as unknown as HTMLInputElement).value,
           description: form["description"].value,
         },
       },
@@ -32,18 +34,17 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
   };
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">{project.title}</h2>
-      <form action="" onSubmit={submitDescription}>
+      <form action="" onSubmit={submit} className="flex flex-col gap-5">
+        <CustomInput name="title" label="Title" type="text" value={project.title} />
         <CustomTextArea
           name="description"
-          label="description"
+          label="Description"
           value={project.description}
         />
         <CustomButton
-          label="Update Description"
+          label="Update Project Settings"
           disabled={updateLoading}
           type="submit"
-          className="mt-3"
         />
         {updateError && <p>{updateError.message}</p>}
       </form>

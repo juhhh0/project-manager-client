@@ -7,6 +7,7 @@ type Props = {
   description?: string;
   type: string;
   className?: string;
+  value?: string
 };
 
 const CustomInput: React.FC<Props> = ({
@@ -15,6 +16,7 @@ const CustomInput: React.FC<Props> = ({
   description,
   type,
   className,
+  value
 }) => {
   return (
     <div className={`w-full max-w-md ${className}`}>
@@ -29,6 +31,7 @@ const CustomInput: React.FC<Props> = ({
             "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
           )}
           type={type}
+          defaultValue={value}
           name={name}
         />
       </Field>
