@@ -10,7 +10,7 @@ const ProjectContent: React.FC<{ content: string }> = ({ content }) => {
     return (
         <>
             <BlockNoteView editor={editor} />
-            <CustomButton label="Save" onClick={() => console.log(editor.document)} />
+            <CustomButton label="Save" onClick={() => console.log(editor.document)} className="block ml-auto mt-3" />
         </>
     );
 
