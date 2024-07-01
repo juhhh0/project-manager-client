@@ -4,6 +4,7 @@ import CustomTextArea from "../../ui/TextArea";
 import { UPDATE_PROJECT } from "../../../services/mutations";
 import CustomInput from "../../ui/Input";
 import ErrorMessage from "../../ui/ErrorMessage";
+import DeleteProject from "./DeleteProject";
 
 type Props = {
   project: {
@@ -36,17 +37,25 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
   return (
     <div>
       <form action="" onSubmit={submit} className="flex flex-col gap-5">
-        <CustomInput name="title" label="Title" type="text" value={project.title} />
+        <CustomInput
+          name="title"
+          label="Title"
+          type="text"
+          value={project.title}
+        />
         <CustomTextArea
           name="description"
           label="Description"
           value={project.description}
         />
-        <CustomButton
-          label="Update Project Settings"
-          disabled={updateLoading}
-          type="submit"
-        />
+        <div className="flex gap-3">
+          <DeleteProject id={project.id} />
+          <CustomButton
+            label="Update Project Settings"
+            disabled={updateLoading}
+            type="submit"
+          />
+        </div>
         <ErrorMessage error={updateError} />
       </form>
     </div>

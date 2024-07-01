@@ -1,6 +1,4 @@
-import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import { ProjectType } from "../../types/types";
-import DeleteProject from "./ProjectSettings/DeleteProject";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -9,7 +7,6 @@ type Props = {
 };
 
 const ProjectList: React.FC<Props> = ({ title, projects }) => {
-  const auth: { id: string } | null = useAuthUser();
 
   return (
     <section className="mt-8">
@@ -24,7 +21,6 @@ const ProjectList: React.FC<Props> = ({ title, projects }) => {
               <p>{project.title}</p>
               <p className="opacity-70">{project.description}</p>
             </Link>
-            {auth?.id === project.userId && <DeleteProject id={project.id} />}
           </li>
         ))}
       </ul>

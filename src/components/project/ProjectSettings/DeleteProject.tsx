@@ -17,7 +17,7 @@ const DeleteProject: React.FC<{ id: string }> = (id) => {
 
   return (
     <CustomButton
-      label="Delete"
+      label="Delete Project"
       color="red"
       disabled={loading}
       onClick={deleteProjectClick}
