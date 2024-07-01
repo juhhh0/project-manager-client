@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/ui/Input";
 import CustomButton from "../components/ui/Button";
 import { LOGIN_MUTATION } from "../services/mutations";
+import ErrorMessage from "../components/ui/ErrorMessage";
 
 const Login: React.FC = () => {
   const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
@@ -56,7 +57,7 @@ const Login: React.FC = () => {
         type="submit"
         className="mt-3"
       />
-      {error && <p>{error.message}</p>}
+      <ErrorMessage error={error} />
     </form>
   );
 };

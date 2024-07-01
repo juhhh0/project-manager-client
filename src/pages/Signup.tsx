@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CustomInput from "../components/ui/Input";
 import CustomButton from "../components/ui/Button";
 import { SIGNUP_MUTATION } from "../services/mutations";
+import ErrorMessage from "../components/ui/ErrorMessage";
 
 const Signup: React.FC = () => {
   const [signup, { loading, error }] = useMutation(SIGNUP_MUTATION);
@@ -55,7 +56,7 @@ const Signup: React.FC = () => {
         type="submit"
         className="mt-3"
       />
-      {error && <p>{error.message}</p>}
+      <ErrorMessage error={error} />
     </form>
   );
 };

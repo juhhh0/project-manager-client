@@ -6,6 +6,7 @@ import CustomButton from "../ui/Button";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PROJECT } from "../../services/mutations";
 import { ProjectType } from "../../types/types";
+import ErrorMessage from "../ui/ErrorMessage";
 
 type Props = {
   content: string;
@@ -13,7 +14,6 @@ type Props = {
 };
 
 const ProjectContent: React.FC<Props> = ({ content, project }) => {
-
   const editor = useCreateBlockNote({
     initialContent: JSON.parse(content),
   });
@@ -36,8 +36,6 @@ const ProjectContent: React.FC<Props> = ({ content, project }) => {
     });
   };
 
-
-
   return (
     <>
       <h2 className="font-bold text-xl pl-14">{project.title}</h2>
@@ -48,7 +46,7 @@ const ProjectContent: React.FC<Props> = ({ content, project }) => {
         onClick={() => saveContent(editor)}
         className="block ml-auto mt-3"
       />
-      {updateError && <p>{updateError.message}</p>}
+      <ErrorMessage error={updateError} />
     </>
   );
 };

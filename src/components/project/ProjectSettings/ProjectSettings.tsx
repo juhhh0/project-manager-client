@@ -3,6 +3,7 @@ import CustomButton from "../../ui/Button";
 import CustomTextArea from "../../ui/TextArea";
 import { UPDATE_PROJECT } from "../../../services/mutations";
 import CustomInput from "../../ui/Input";
+import ErrorMessage from "../../ui/ErrorMessage";
 
 type Props = {
   project: {
@@ -46,7 +47,7 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
           disabled={updateLoading}
           type="submit"
         />
-        {updateError && <p>{updateError.message}</p>}
+        <ErrorMessage error={updateError} />
       </form>
     </div>
   );
