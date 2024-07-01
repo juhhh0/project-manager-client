@@ -7,6 +7,11 @@ export const GET_PROJECT = gql`
       title
       description
       content
+      tasks {
+        id
+        title
+        content
+      }
     }
   }
 `;
