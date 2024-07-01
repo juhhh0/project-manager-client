@@ -1,6 +1,6 @@
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
-import UserProjects from "../components/project/UserProjects";
-import NewProjectForm from "../components/project/NewProjectForm";
+import UserProjects from "../components/Project/UserProjects";
+import NewProjectForm from "../components/Project/NewProjectForm";
 
 const Home: React.FC = () => {
   const isAuthenticated = useIsAuthenticated();

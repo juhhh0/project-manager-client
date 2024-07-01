@@ -1,7 +1,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { ProjectType } from "../../types/types";
-import ProjectSettings from "../project/ProjectSettings";
-import ProjectContent from "../project/ProjectContent";
+import ProjectSettings from "../Project/ProjectSettings/ProjectSettings";
+import ProjectContent from "../Project/ProjectContent";
 
 type Props = {
   content: string;
@@ -21,7 +21,7 @@ const Tabs: React.FC<Props> = ({ content, project }) => {
       </TabList>
       <TabPanels>
         <TabPanel className="mt-3">
-          <ProjectContent content={content} />
+          <ProjectContent content={content} project={project}/>
         </TabPanel>
         <TabPanel className="mt-3">
           <ProjectSettings project={project} />

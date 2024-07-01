@@ -1,6 +1,6 @@
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import { ProjectType } from "../../types/types";
-import DeleteProject from "./DeleteProject";
+import DeleteProject from "./ProjectSettings/DeleteProject";
 import { Link } from "react-router-dom";
 
 type Props = {

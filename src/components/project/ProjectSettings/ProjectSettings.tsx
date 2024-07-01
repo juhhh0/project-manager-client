@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
-import CustomButton from "../ui/Button";
-import CustomTextArea from "../ui/TextArea";
-import { UPDATE_PROJECT } from "../../services/mutations";
-import CustomInput from "../ui/Input";
+import CustomButton from "../../ui/Button";
+import CustomTextArea from "../../ui/TextArea";
+import { UPDATE_PROJECT } from "../../../services/mutations";
+import CustomInput from "../../ui/Input";
 
 type Props = {
   project: {

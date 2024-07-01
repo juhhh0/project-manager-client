@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
-import CustomButton from "../ui/Button";
-import { DELETE_PROJECT } from "../../services/mutations";
+import CustomButton from "../../ui/Button";
+import { DELETE_PROJECT } from "../../../services/mutations";
 
 const DeleteProject: React.FC<{ id: string }> = (id) => {
   const [deleteProject, { loading }] = useMutation(DELETE_PROJECT, {

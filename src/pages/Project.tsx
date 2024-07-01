@@ -15,7 +15,7 @@ const Project: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  return <Tabs content="Content" project={data.project} />;
+  return <Tabs content={data.project.content} project={data.project} />;
 };
 
 export default Project;

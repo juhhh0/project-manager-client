@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import ProjectList from "../components/project/ProjectList";
+import ProjectList from "../components/Project/ProjectList";
 import { GET_USER } from "../services/queries";
 
 const Profile: React.FC = () => {

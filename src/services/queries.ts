@@ -6,6 +6,7 @@ export const GET_PROJECT = gql`
       id
       title
       description
+      content
     }
   }
 `;
