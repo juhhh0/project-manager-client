@@ -24,7 +24,7 @@ const NewProjectForm: React.FC = () => {
   };
 
   return (
-    <form action="" onSubmit={submit} className="flex flex-col max-w-sm">
+    <form action="" onSubmit={submit} className="flex flex-col h-40">
       <h2 className="text-xl font-bold mb-3">Start a new project</h2>
       <CustomInput name="project-title" label="Project Title" type="text" />
       <ErrorMessage error={error} />

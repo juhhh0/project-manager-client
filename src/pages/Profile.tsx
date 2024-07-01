@@ -1,5 +1,4 @@
 import { useQuery } from "@apollo/client";
-import ProjectList from "../components/Project/ProjectList";
 import { GET_USER } from "../services/queries";
 
 const Profile: React.FC = () => {
@@ -12,7 +11,7 @@ const Profile: React.FC = () => {
     <div>
       <h2>{data.userProfile.name}</h2>
       <p>{data.userProfile.email}</p>
-      <ProjectList title="Projects" projects={data.userProfile.projects} />
+      {/* <ProjectList projects={data.userProfile.projects} /> */}
     </div>
   );
 };
