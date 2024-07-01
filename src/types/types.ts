@@ -3,6 +3,13 @@ type ProjectType = {
     title: string;
     description: string;
     userId: string;
+    tasks: TaskType[]
 }
 
-export type { ProjectType }
+type TaskType = {
+    id: string;
+    title: string;
+    content: string;
+}
+
+export type { ProjectType, TaskType }

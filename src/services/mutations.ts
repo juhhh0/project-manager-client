@@ -44,3 +44,10 @@ export const CREATE_PROJECT = gql`
     }
   }
 `;
+
+export const ADD_TASK = gql`
+  mutation AddTask($projectId: ID!, $task: AddTaskInput!) {
+    addTask(projectId: $projectId, task: $task) {
+      title
+    }
+  }`

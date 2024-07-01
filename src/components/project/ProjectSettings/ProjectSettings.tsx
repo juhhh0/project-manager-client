@@ -28,7 +28,7 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
       variables: {
         id: project.id,
         project: {
-          title: (form["title"] as unknown as HTMLInputElement).value,
+          title: form["project-title"].value,
           description: form["description"].value,
         },
       },
@@ -38,7 +38,7 @@ const ProjectSettings: React.FC<Props> = ({ project }) => {
     <div>
       <form action="" onSubmit={submit} className="flex flex-col gap-5">
         <CustomInput
-          name="title"
+          name="project-title"
           label="Title"
           type="text"
           value={project.title}
