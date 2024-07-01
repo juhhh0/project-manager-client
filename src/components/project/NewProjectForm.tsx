@@ -26,13 +26,13 @@ const NewProjectForm: React.FC = () => {
     <form action="" onSubmit={submit} className="flex flex-col max-w-sm">
       <h2 className="text-xl font-bold mb-3">Start a new project</h2>
       <CustomInput name="project-title" label="Project Title" type="text" />
+      {error && <p className="text-red-600 pt-2">{error.message}</p>}
       <CustomButton
         label="Create Project"
         disabled={loading}
         type="submit"
         className="mt-3"
       />
-      {error && <p>{error.message}</p>}
     </form>
   );
 };
