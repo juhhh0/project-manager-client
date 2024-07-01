@@ -37,9 +37,12 @@ const ProjectContent: React.FC<Props> = ({ content, project }) => {
   };
 
   return (
-    <>
-      <h2 className="font-bold text-xl pl-14">{project.title}</h2>
+    <div className="relative">
+      <h2 className="font-bold text-xl pl-14 absolute top-6 z-10">
+        {project.title}
+      </h2>
       <BlockNoteView editor={editor} />
+
       <CustomButton
         label="Save"
         disabled={updateLoading}
@@ -47,7 +50,7 @@ const ProjectContent: React.FC<Props> = ({ content, project }) => {
         className="block ml-auto mt-3"
       />
       <ErrorMessage error={updateError} />
-    </>
+    </div>
   );
 };
 
