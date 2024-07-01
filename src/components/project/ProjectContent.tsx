@@ -14,7 +14,6 @@ type Props = {
 
 const ProjectContent: React.FC<Props> = ({ content, project }) => {
 
-    console.log(content)
   const editor = useCreateBlockNote({
     initialContent: JSON.parse(content),
   });
