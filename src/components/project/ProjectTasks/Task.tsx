@@ -22,7 +22,14 @@ const Task: React.FC<Props> = ({ task }) => {
           className={`w-5 h-5 ml-auto ${open ? "transform rotate-180" : ""}`}
         />
       </div>
-      {open && <div className="text-gray-400 pt-2">{task.content}</div>}
+      {open && (
+        <div className="text-gray-400 pt-2 relative">
+          {task.content}
+          <button className="absolute bottom-0 right-0 text-red-500">
+            delete
+          </button>
+        </div>
+      )}
     </li>
   );
 };
