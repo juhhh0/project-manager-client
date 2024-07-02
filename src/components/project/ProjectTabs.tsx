@@ -1,15 +1,15 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { ProjectType } from "../../types/types";
-import ProjectSettings from "../Project/ProjectSettings/ProjectSettings";
-import ProjectContent from "../Project/ProjectContent";
-import ProjectTasks from "../Project/ProjectTasks/ProjectTasks";
+import ProjectSettings from "./ProjectSettings/ProjectSettings";
+import ProjectContent from "./ProjectContent";
+import ProjectTasks from "./ProjectTasks/ProjectTasks";
 
 type Props = {
   content: string;
   project: ProjectType;
 };
 
-const Tabs: React.FC<Props> = ({ content, project }) => {
+const ProjectTabs: React.FC<Props> = ({ content, project }) => {
   return (
     <TabGroup>
       <TabList className="w-full flex justify-center gap-4">
@@ -38,4 +38,4 @@ const Tabs: React.FC<Props> = ({ content, project }) => {
   );
 };
 
-export default Tabs;
+export default ProjectTabs;

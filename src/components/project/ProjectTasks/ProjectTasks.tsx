@@ -1,21 +1,18 @@
 import { ProjectType, TaskType } from "../../../types/types";
 import NewTaskForm from "./NewTaskForm";
+import Task from "./Task";
 
 type Props = {
   project: ProjectType;
 };
 
 const ProjectTasks: React.FC<Props> = ({ project }) => {
-    console.log(project)
+  console.log(project);
   return (
     <section>
-      <h1>Tasks</h1>
-      <ul>
+      <ul className="flex flex-col gap-3 my-6">
         {project.tasks.map((task: TaskType) => (
-          <li key={task.id}>
-            <h2>{task.title}</h2>
-            <p>{task.content}</p>
-          </li>
+          <Task key={task.id} task={task} />
         ))}
       </ul>
       <NewTaskForm project={project.id} />
