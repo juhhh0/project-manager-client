@@ -32,7 +32,7 @@ const NewProjectForm: React.FC = () => {
         label="Create Project"
         disabled={loading}
         type="submit"
-        className="mt-3"
+        className="mt-1"
       />
     </form>
   );

@@ -13,13 +13,13 @@ const UserHome: React.FC = () => {
   return (
     <section className="w-full">
       <ul className="flex gap-6 items-center flex-wrap">
-        <li className="flex-1 min-w-40">
+        <li className="px-5 min-w-40 md:min-w-80 w-full md:flex-1">
           <NewProjectForm />
         </li>
         {data.userProjects.map((project: ProjectType) => (
           <li
             key={project.id}
-            className="bg-white/5 p-5 flex rounded-lg h-40 flex-1 min-w-40"
+            className="bg-white/5 p-5 flex rounded-lg h-40 flex-1 min-w-40 md:min-w-80"
           >
             <Link to={"/project/" + project.id}>
               <p>{project.title}</p>
