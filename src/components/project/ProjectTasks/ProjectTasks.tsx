@@ -7,7 +7,6 @@ type Props = {
 };
 
 const ProjectTasks: React.FC<Props> = ({ project }) => {
-  console.log(project);
   return (
     <section>
       <ul className="flex flex-col gap-3 my-6">

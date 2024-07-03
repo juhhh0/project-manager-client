@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TaskType } from "../../../types/types";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import DeleteTask from "./DeleteTask";
 
 type Props = { task: TaskType };
 
@@ -25,9 +26,8 @@ const Task: React.FC<Props> = ({ task }) => {
       {open && (
         <div className="text-gray-400 pt-2 relative">
           {task.content}
-          <button className="absolute bottom-0 right-0 text-red-500">
-            delete
-          </button>
+
+          <DeleteTask id={task.id} />
         </div>
       )}
     </li>
