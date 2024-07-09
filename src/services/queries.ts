@@ -7,6 +7,8 @@ export const GET_PROJECT = gql`
       title
       description
       content
+      githubUrl
+      hostingUrl
       tasks {
         id
         title

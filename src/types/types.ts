@@ -4,6 +4,8 @@ type ProjectType = {
     description: string;
     userId: string;
     tasks: TaskType[]
+    githubUrl: string;
+    hostingUrl: string;
 }
 
 type TaskType = {
