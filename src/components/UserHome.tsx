@@ -3,6 +3,7 @@ import NewProjectForm from "./Project/NewProjectForm";
 import { GET_USER_PROJECTS } from "../services/queries";
 import { ProjectType } from "../types/types";
 import { Link } from "react-router-dom";
+import ProjectCard from "./Project/ProjectCard";
 
 const UserHome: React.FC = () => {
   const { data, error, loading } = useQuery(GET_USER_PROJECTS);
@@ -17,15 +18,7 @@ const UserHome: React.FC = () => {
           <NewProjectForm />
         </li>
         {data.userProjects.map((project: ProjectType) => (
-          <li
-            key={project.id}
-            className="bg-white/5 p-5 flex rounded-lg h-40 flex-1 min-w-48 md:min-w-80 max-w-md"
-          >
-            <Link to={"/project/" + project.id}>
-              <p>{project.title}</p>
-              <p className="opacity-70">{project.description}</p>
-            </Link>
-          </li>
+         <ProjectCard project={project} key={project.id} />
         ))}
       </ul>
     </section>

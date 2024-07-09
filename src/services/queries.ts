@@ -39,6 +39,7 @@ export const GET_USER_PROJECTS = gql`
     userProjects {
       title
       description
+      hostingUrl
       userId
       id
     }
