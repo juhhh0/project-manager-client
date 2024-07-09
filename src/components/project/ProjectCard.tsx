@@ -17,11 +17,15 @@ const ProjectCard: React.FC<Props> = ({ project }) => {
         <p className="opacity-70">{project.description}</p>
 
         {project.hostingUrl && (
-          <span className="absolute right-3 top-3 p-1 opacity-50 border border-white rounded-md">
-            <Link to={project.hostingUrl}>
-              <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-            </Link>
-          </span>
+          <a
+            href={project.hostingUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="absolute right-3 top-3 p-1 opacity-50 border border-white rounded-md"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+          </a>
         )}
       </li>
     </Link>
