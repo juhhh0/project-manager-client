@@ -42,6 +42,9 @@ export const GET_USER_PROJECTS = gql`
       hostingUrl
       userId
       id
+      tasks {
+        id
+      }
     }
   }
 `;
